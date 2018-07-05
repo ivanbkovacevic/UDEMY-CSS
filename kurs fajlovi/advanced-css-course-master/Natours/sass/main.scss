@@ -4,7 +4,8 @@ $color-primary:#55c57a;
 $color-primary-light:#7ed56f;
 $color-primary-dark:#28b485;
 $color-gray-dark:#777;
-$color-white:blue;
+$color-white:white;
+$color-black: black;
 
 * {
     margin: 0;
@@ -29,31 +30,34 @@ body {
     rgba($color-primary-dark, 0.699) ),url(../img/hero.jpg);
     background-size: cover;
     background-position: top;
+
     clip-path: polygon(0 0,100% 0,100% 70vh,0 100%)
     
+    &__logo-box {
+        position: absolute;
+        top: 40px;
+        left: 40px;
+    }
+
+    &__logo {
+        height: 35px;
+    
+    }
+    
+    &__text-box {
+        position: absolute;
+        top:40%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        text-align: center;
+    }
 }
 
-.header__logo-box {
-    position: absolute;
-    top: 40px;
-    left: 40px;
-}
 
-.header__logo {
-    height: 35px;
 
-}
 
 .logo-box:hover .logo {
     animation: moveInRight 2s ease-out;
-}
-
-.header__text-box {
-    position: absolute;
-    top:40%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    text-align: center;
 }
 
 .heading-primary{
@@ -75,17 +79,18 @@ body {
     /*
      animation-iteration-count: 
     animation-delay: 2s; */
+    &-primary--sub {
+        display: block;
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 17.4px; 
+        margin-bottom: 30px;
+        animation: moveInRight 2s ease-in-out;
+    }
 
 }
 
-.heading-primary--sub {
-    display: block;
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: 17.4px; 
-    margin-bottom: 30px;
-    animation: moveInRight 2s ease-in-out;
-}
+
 
 @keyframes moveInLeft {
     0% {
@@ -133,8 +138,10 @@ body {
     }
 }
 
-.btn:link,
-.btn:visited {
+.btn {
+
+&:link,
+&:visited {
     text-transform: uppercase;
     text-decoration: none;
     padding:15px 40px;
@@ -145,24 +152,34 @@ body {
 
 }
 
-.btn:hover {
+&:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,.2);
+    box-shadow: 0 10px 20px rgba($color-black,.2);
+
+    &::after{
+        transform: scaleX(1.5) scaleY(1.6);
+        opacity: 0;
+    }
 }
 
 
 
-.btn:active {
+&:active {
     transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    box-shadow: 0 5px 10px rgba($color-black,.2);
 }
 
-.btn--white {
+&--white {
     background-color: $color-white;
     color: $color-gray-dark;
+
+    &::after {
+        background-color: $color-white;
+    }
+    
 }
 
-.btn::after {
+&::after {
     content: "";
     display: inline-block;
     height: 100%;
@@ -176,16 +193,12 @@ body {
 
 }
 
-.btn--white::after {
-    background-color: $color-white;
-}
 
-.btn:hover::after{
-    transform: scaleX(1.5) scaleY(1.6);
-    opacity: 0;
-}
 
-.btn--animated {
+
+&--animated {
     animation: moveInButton .5s ease-out .67s;
     animation-fill-mode: backwards;
+}
+
 }

@@ -38,7 +38,7 @@ body {
   text-align: center; }
 
 .heading-primary {
-  color: blue;
+  color: white;
   text-transform: uppercase;
   backface-visibility: hidden; }
 
@@ -110,7 +110,7 @@ body {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); }
 
 .btn--white {
-  background-color: blue;
+  background-color: white;
   color: #777; }
 
 .btn::after {
@@ -126,7 +126,7 @@ body {
   transition: all .4s; }
 
 .btn--white::after {
-  background-color: blue; }
+  background-color: white; }
 
 .btn:hover::after {
   transform: scaleX(1.5) scaleY(1.6);
